@@ -1,0 +1,262 @@
+{% extends 'blog/base.html' %}
+{% block title %}Nitesh Sharma's Blog{% endblock %}
+{% load staticfiles %}
+<!-- saved from url=(0067)https://www.w3schools.com/w3css/tryw3css_templates_fashion_blog.htm -->
+<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3mobile.css">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+        
+            <link href="{% static 'new/w3.css' %}" rel="stylesheet" />
+            <link href="{% static '/font-awesome.min.css' %}" rel="stylesheet"/>
+    <style>
+    h1,h2,h3,h4,h5,h6 {font-family: "Oswald"}
+    body {font-family: "Open Sans"}
+    </style>
+    </head>
+{%block body%}
+
+<body class="w3-light-grey">
+
+<!-- Navigation bar with social media icons -->
+<div class="w3-bar w3-black w3-top ">
+  <a title="Facebook" href="https://www.facebook.com/niteshkumar.sharma.1428/" class="w3-bar-item w3-button"><i class="fa fa-facebook-official"></i></a>
+  <a title="Instagram" href="https://www.instagram.com/niteshcs113/" class="w3-bar-item w3-button"><i class="fa fa-instagram"></i></a>
+  <a title="Twitter" href="https://twitter.com/NiteshK38744249/" class="w3-bar-item w3-button"><i class="fa fa-twitter"></i></a>
+<a title="Github" href="https://github.com/niteshcs113/" class="w3-bar-item w3-button"><i class="fa fa-github"></i></a>  
+<a title="LinkedIn" href="https://www.linkedin.com/in/nitesh-kumar-sharma-39408315b" class="w3-bar-item w3-button"><i class="fa fa-linkedin"></i></a>
+   <ul class="nav navbar-nav navbar-right">
+    <li><a title="Register" data-toggle="modal" href="javascript:void(0)" onclick="openRegisterModal();" class="w3-bar-item w3-button"><span
+            class="fa fa-user"></span></a></li>
+    <li><a  data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal(); " class="w3-bar-item w3-button" title="LogIn"><span
+            class="fa fa-sign-in"></span></a></li>
+    {% if request.user.is_authenticated %}
+    <li><a  data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal(); " class="w3-bar-item w3-button w3-hide" title="LogIn"><span
+        class="fa fa-sign-in"></span></a></li>
+
+    <li>
+        <a class="w3-bar-item w3-button fa fa-user-circle" href="#">
+                {{ request.user }}
+                </a>
+                <li>
+                 <a title="LogOut" class="w3-bar-item w3-button fa fa-sign-out" href="{% url 'logout' %}?next={% url 'blog:index' %}"></a></li>
+    
+    {% endif %}
+            </div>
+    </li>
+
+</ul>
+</div>
+<div class="w3-bar w3-green  w3-bottom ">
+        <a href="{% url 'blog:suggestions' %}" class="w3-bar-item w3-button w3-right"><i class="fa fa-snapchat"></i>Any_suggestions</a>
+        <a href="{% url 'blog:about' %}" class="w3-bar-item w3-button w3-right"><i class="fa fa-flickr"></i>About_Me</a>
+ 
+</div>
+
+    <style>
+        body, h1, h2, h3, h4, h5 {
+            font-family: "Raleway", sans-serif
+        }
+
+        .button {
+            border-radius: 4px;
+            background-color: #f4511e;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 15px;
+            padding: 20px;
+            width: 200px;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .button span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+
+        .button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+        .button:hover span {
+            padding-right: 15px;
+        }
+
+        .button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+
+    </style>
+    <body class="w3-light-grey w3-animate-opacity">
+    <!-- w3-content defines a container for fixed size centered content, 
+and is wrapped around the whole page content, except for the footer in this example -->
+<div class="w3-content" style="max-width:1600px">
+
+    <!-- Header -->
+    <header class="w3-container w3-center w3-padding-48 w3-white">
+      <h1 class="w3-xxxlarge"><b >NITESH BLOGLIFE</b></h1>
+      <h6 >Welcome to the blog of <span class="w3-tag" >Nitesh's Technical World</span></h6>
+    </header>
+  
+    <!-- Image header -->
+    <header class="w3-display-container w3-wide" id="home">
+      <img class="w3-image" src="https://ritatpro.com/wp-content/uploads/2018/01/facebook5-1024x640.jpg" alt="Personal Blog" width="1600" height="1060">
+      <div class="w3-display-left w3-padding-large">
+        <h1 class="w3-text-white">Nitesh's</h1>
+        <h1 class="w3-jumbo w3-text-white w3-hide-small"><b>TECHNICAL BLOG</b></h1>
+        <h6><button class="w3-button w3-red w3-padding-large w3-large w3-opacity w3-hover-opacity-off">
+                <li><a data-toggle="modal" href="javascript:void(0)" onclick="openRegisterModal();" >SUBSCRIBE</a></li></button></h6>
+      </div>
+    </header>
+<br/>
+<div class=" w3-center w3-red " >
+    <h2>Latest Posts</h2>
+</div>
+        <!-- Grid -->
+        <div class="w3-row">
+
+            <!-- Blog entries -->
+            <div class="w3-col l8 s12">
+                <!-- Blog entry -->
+                {% for i in post %}
+                    <div class="w3-card-4 w3-margin w3-white">
+                        <a href="/{{ i.id }}"><img src="{{ i.image.url }}" alt="Nature"
+                                                   style="width:100%;max-height:500px"></a>
+
+                        <div class="w3-container">
+                            <h3><b>{{ i.title }}</b></h3>
+                            <h5>{{ i.remark }}, <span class="w3-opacity">{{ i.date }}</span></h5>
+                        </div>
+
+                        <div class="w3-container">
+                            <p style="white-space: pre-wrap;">{{ i.body }}</p>
+                            <div class="w3-row">
+                                <div class="w3-col m8 s12">
+                                    <a href="/{{ i.id }}">
+                                        <button class="button w3-padding-large w3-black w3-border w3-round-xxlarge">
+                                            <span><b>Read More</b>  </span></button>
+                                    </a>
+                                </div>
+                                <div class="w3-col m4 ">
+                                    <a href="{% url 'blog:comment' i.id %}"><span
+                                            class="w3-button w3-hide-small w3-round-xxlarge w3-padding-large w3-black w3-right w3-border"><b>Comments </b> <span
+                                            class="w3-tag  "><b>{{ i.comment_set.count }}</b></span></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                <hr>
+                <div class="w3-center">
+                        
+                        <!-- Pagination -->
+                        <div class="w3-center w3-padding-32">
+                          <div class="w3-bar w3-black">
+                            <a href="" class="w3-bar-item w3-button w3-hover-theme">«</a>
+                            <a href="" class="w3-bar-item w3-button w3-theme w3-hover-theme">1</a>
+                            <a href="" class="w3-bar-item w3-button w3-hover-theme">2</a>
+                            <a href="" class="w3-bar-item w3-button w3-hover-theme">3</a>
+                            <a href="" class="w3-bar-item w3-button w3-hover-theme">4</a>
+                            <a href="" class="w3-bar-item w3-button w3-hover-theme">5</a>
+                            <a href="" class="w3-bar-item w3-button w3-hover-theme">»</a>
+                          </div>
+                        </div>
+                      </div>
+            </div>
+
+
+            <!-- Introduction menu -->
+            <div class="w3-col l4">
+                <!-- About Card -->
+                <div class="w3-card w3-margin w3-margin-top">
+                    <a href="{% url 'blog:about' %}"> <img class="" src="../../../media/profile/aabb.jpg"
+                                                           style="width:380;"></a>
+                    <div class="w3-container w3-black">
+                        <h4><b>Nitesh Kumar Sharma</b></h4>
+                        <p>Welcome to the my blog. I'm intrested in coding and
+                            share programming tricks in Languages like C,C++,Java,C#, R and Python</p>
+                    </div>
+                </div>
+                <hr>
+
+                <!-- Posts -->
+
+                <div class="w3-card w3-margin">
+                    <div class="w3-container w3-padding w3-black">
+                        <h4>Popular Posts</h4>
+                    </div>
+                    {% for i in post %}
+                        <a style="text-decoration:none;" href="{{ i.id }}">
+                            <ul class="w3-ul w3-hoverable w3-white">
+                                <li class="w3-padding-16">
+                                    <img src="{{ i.image.url }}" alt="Image" class="w3-left w3-margin-right"
+                                         style="width:50px">
+                                    <span class="w3-large">{{ i.title }}</span><br>
+                                    <span>{{ i.remark }}</span>
+                                </li>
+                            </ul>
+                        </a>
+                    {% endfor %}
+                </div>
+
+                <hr>
+
+                <!-- Labels / tags -->
+                <div class="w3-card w3-margin">
+                    <div class="w3-container w3-padding w3-black">
+                        <h4>Tags</h4>
+                    </div>
+                    <div class="w3-container w3-white">
+                        <br/>
+                        <p><span class="w3-tag w3-black w3-margin-bottom">Python</span> <span
+                                class="w3-tag w3-light-grey w3-small w3-margin-bottom"> Java </span><span
+                                class="w3-tag w3-light-grey w3-small w3-margin-bottom"> C </span><span
+                                class="w3-tag w3-light-grey w3-small w3-margin-bottom"> C++ </span><span
+                                class="w3-tag w3-light-grey w3-small w3-margin-bottom"> C# </span>
+                        
+                            </p>
+                    </div>
+                </div>
+
+                <!-- END Introduction Menu -->
+            </div>
+
+            <!-- END GRID -->
+        </div>
+        <br>
+
+        <!-- END w3-content -->
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
+            <a href="">
+                    <button class="button w3-padding-large w3-black w3-border w3-right"><span> <b>Go Top </b></span></button>
+                </a>
+               
+        <a href="{% url 'blog:about' %}">
+            <button class="button w3-padding-large w3-black w3-border"><span> <b>About Me  </b></span></button>
+        </a>
+        <a href="{% url 'blog:suggestions' %}">
+            <button class="button w3-padding-large w3-black w3-border "><span> <b>Contact us  </b></span></button>
+        </a>
+       <br/><br> <p>Developed & designed by | <a href="" target="_blank"><b style="color:red">NITESH KUMAR SHARMA</b></a></p>
+    </footer>
+
+
+    </body>
+{% endblock %}

@@ -1,0 +1,119 @@
+{% extends 'blog/base.html' %}
+{% block title %}{{ post.title }}{% endblock %}
+{% block body %}
+    <body class="w3-animate-zoom">
+    <div class="w3-card-4 w3-margin w3-col l8 s12 " style="width: 97.5%">
+        <div class="comments-container w3-transparent"><h1><a href="{% url 'blog:view' post.id %}">{{ post }}</a></h1>
+            <h3>{{ post.remark }} {{ post.date }}</h3>
+        </div>
+
+        <div class="w3-card-4 w3-margin w3-col l8  " style="width: 97.5% ">
+            <img src="{{ post.image.url }}" alt="Nature" style="width:100%">
+        </div>
+
+        <pre class="w3-margin  "
+             style="white-space:pre-wrap;color: black;font-family: ' Consolas';font-size: 20px">{{ post.body }}</pre>
+
+        {% if post.code %}
+            <figure>
+                  <pre>
+                    <code><br>{{ post.code }} </code>
+                  </pre>
+            </figure>
+        {% endif %}
+
+        {% if post.file %}
+            <a href="{{ post.file.url }}" download>
+                <button class="w3-button w3-card-4 w3-padding-large w3-hover-border-white w3-border w3-round ">
+                    <b>Download file </b>
+                </button>
+            </a>
+        {% endif %}
+
+        {% if post.link %}
+            <a href="{{ post.link }}">
+                <button class="w3-button w3-padding-large w3-hover-border-white w3-border w3-round w3-card-4">
+                    <b>Goto Link</b>
+                </button>
+            </a>
+        {% endif %}
+    </div>
+
+    <div class="container w3-margin w3-card-4 w3-col l8 s12" style="width: 97.5%">
+        <link href="font-awesome.min.css" rel="stylesheet">
+        <div class="row">
+            <!-- Contenedor Principal -->
+            <div class="comments-container">
+                <h1><a href="/{{ post.id }}">{{ post }}</a></h1>
+                <h1>Comments</h1>
+                <ul id="comments-list" class="comments-list">
+
+                    {% for i in post.comment_set.all %}
+                        <li>
+                            <div class="comment-main-level">
+                                <div class="comment-avatar"><img src="{{ post.image.url }}" alt=""></div>
+                                <div class="comment-box">
+                                    <div class="comment-head w3-card-4 ">
+                                        {% if  i.user_name == 'admin' %}
+                                            <h6 class="comment-name by-author">
+                                                <a href="{% url 'blog:about' %}">{{ i.user_name }}</a>
+                                            </h6>
+                                        {% else %}
+                                            <h6 class="comment-name ">
+                                                <a href="#">{{ i.user_name }}</a>
+                                            </h6>
+                                        {% endif %}
+
+                                        <span>{{ i.date }}</span>
+                                        <a href="{% url 'blog:reply' i.id %}">
+                                            <i class="fa fa-reply "></i>
+                                        </a>
+
+                                        </i>
+                                        <i class="fa fa-heart"></i>
+                                    </div>
+
+                                    <div class="comment-content w3-card-4">{{ i.comment }}</div>
+                                </div>
+                            </div>
+
+                            <!-- Respuestas de los comentarios -->
+
+                            <ul class="comments-list reply-list">
+
+                                {% for j in i.replymodel_set.all %}
+                                    <li>
+                                        <div class="comment-avatar"><img src={{ post.image.url }}></div>
+                                        <div class="comment-box">
+                                            <div class="comment-head">
+                                                <h6 class="comment-name">
+                                                    {{ j.user_name }}
+                                                </h6>
+                                                <span>{{ j.date }}</span>
+                                                <i class="fa fa-bell"></i>
+                                                <i class="fa fa-heart"></i>
+                                            </div>
+                                            <div class="comment-content">
+                                                {{ j.reply }}
+                                            </div>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+
+                    {% empty %}
+                        <p>No comments yet</p>
+                        <br>
+                    {% endfor %}
+                </ul>
+                <a href="{% url 'blog:comment' post.id %}">
+                    <button class="w3-button w3-hover-border-white w3-padding-large "><b>COMMENT»</b></button>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    </body>
+{% endblock %}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   
+    <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            width: 344px;
+            height: 377px;
+        }
+        .auto-style3 {
+            height: 78px;
+        }
+        .auto-style5 {
+            height: 67px;
+        }
+        .auto-style6 {
+            height: 66px;
+        }
+        .auto-style7 {
+            height: 62px;
+        }
+    </style>
+</head>
+<body style="background-color:#660033; height: 558px">
+    <div class="login">
+    <form action="post">
+        {% csrf_token %}
+    <div>            
+
+        <br />
+
+        <table align="center" class="auto-style1" style="border-radius:10px;border-style: inherit; background-color: #FFFFFF;box-shadow: 8px 8px 16px rgba(126, 111, 111, 0.5)">
+            <tr>
+                <td class="auto-style6">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:Label ID="Label1" runat="server" ForeColor="#660033" Text="Login" Font-Size="30px"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style3">&nbsp;&nbsp;&nbsp; <input type="textbox" id="username" Height="36px" Width="301px" placeholder="Username" style="border-bottom:1px solid #660033;text-align:center;border-left:none;border-right:none;border-top:none;outline:0" ></input>
+                    <br />
+&nbsp;&nbsp;
+                    </td>
+            </tr>
+            <tr>
+                <td class="auto-style5">&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" Height="36px" Width="301px"  style="border-bottom:1px solid #660033;text-align:center;border-left:none;border-right:none;border-top:none;outline:0" placeholder="Password" TextMode="Password">
+                    <br />
+&nbsp;&nbsp;
+                     <br />
+&nbsp;&nbsp;&nbsp;
+                    </td>
+            </tr>
+            <tr>
+                <td class="auto-style7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <input type="submit" id="submit" BackColor="#660033" Font-Bold="True" Font-Size="22px" ForeColor="White" Height="47px" Text="Login" Width="194px" style="cursor:pointer;border-radius:100px;outline:0">
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style7">&nbsp;&nbsp;
+                    </td>
+            </tr>
+        </table>
+    </div>
+    </div>
+
+
+        
+          <footer>
+                <p style="text-align:center;color:white">&nbsp;</p>
+                <p style="text-align:center;color:white">&nbsp;&copy; <%: DateTime.Now.Year %> - Developed & Designed by -<b style="color:red"> NITESH KUMAR SHARMA</b></p>
+            </footer>
+    </form>
+</body>
+</html>

@@ -1,0 +1,34 @@
+{% extends 'blog/base.html' %}
+{% block title %}{{ userprofile.profile }}{% endblock %}
+{% block body %}
+    <body>
+
+    <h2 style="text-align:center">{{ userprofile }}</h2>
+
+    <div style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);max-width: 300px;margin: auto;text-align: center;font-family: arial;">
+        <img src="{{ userprofile.profile_image.url }}" alt="John" style="width:100%">
+        <h1>{{ userprofile.profile }}</h1>
+        {% if userprofile.profile.is_superuser %}
+            <p class="title">Admin</p>
+        {% else %}
+            <p class="title">Member </p>
+        {% endif %}
+        <p>{{ userprofile.bio }}</p>
+        <p>Date Joined :{{ userprofile.profile.date_joined }}</p>
+        <p>Last Login :{{ userprofile.profile.last_login }}</p>
+        <p>Email :{{ userprofile.profile.email }}</p>
+        <div style="margin: 24px 0;">
+            <a style="text-decoration: none;color: black;font-size: 17px" href="#"><i class="fa fa-dribbble"></i></a>
+            <a style="text-decoration: none;color: black;font-size: 17px" href="#"><i class="fa fa-twitter"></i></a>
+            <a style="text-decoration: none;color: black;font-size: 17px" href="#"><i class="fa fa-linkedin"></i></a>
+            <a style="text-decoration: none;color: black;font-size: 17px" href="#"><i class="fa fa-facebook"></i></a>
+        </div>
+        <p>
+            <button style="border: none;outline: 0;display: inline-block;padding: 8px;color: white;background-color: #000;text-align: center;cursor: pointer;width: 100%;font-size: 18px;">
+                Contact
+            </button>
+        </p>
+    </div>
+
+    </body>
+{% endblock %}
